@@ -5,8 +5,10 @@ from Valuation import valuation
 import sys
 
 # StockData class arguments
-stock_data_path = "/mnt/c/Users/stef-/Desktop/Python_Assignment/Stocks_Init"
+stock_data_path = "/mnt/c/Users/working_dir/Stocks_Init" # the 'Stocks_Init' dir contains the stocks prices+volume from the kaggle dataset
 n_seq_small = 1000
+
+# These parameters can be minimally tweaked (e.g. change the minimum years by 1-2)
 date_ranges = ('1962-01-01', '1980-01-01'), ('1980-01-01', '2000-01-01'), ('2000-01-01', '2018-01-01')
 min_years = (5, 10, 5)
 min_total_return = (2, 100, 50)
@@ -56,7 +58,7 @@ sell_df = pd.concat([BuySell_df[1] for BuySell_df in BuySell_dfs])
 valuation(buy_df, sell_df)
 
 # write the final transcations sequence .txt file to the specified path
-with open('C:/Users/stef-/Desktop/Python_Assignment/small_2.txt', 'w', newline='') as file:
+with open('/mnt/c/Users/user/working_dir/small.txt', 'w', newline='') as file:
   file.write(f"{len(small_txt)}\n")
   small_txt.to_csv(
         file,
@@ -64,3 +66,4 @@ with open('C:/Users/stef-/Desktop/Python_Assignment/small_2.txt', 'w', newline='
         index=False,
         header=False
     )
+
