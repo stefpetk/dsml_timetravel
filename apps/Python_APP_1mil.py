@@ -5,7 +5,7 @@ from Valuation import valuation
 from StockTrader_1mil import StockTrader_1mil
 
 # StockData class arguments
-stock_data_path = "/mnt/c/Users/stef-/Desktop/Python_Assignment/Stocks_Init"
+stock_data_path = "/mnt/c/Users/user/working_dir/Stocks_Init"
 n_seq_large = 1000000
 
 # Create the StockData class instance for 
@@ -21,8 +21,9 @@ transactions, buy_df, sell_df, final_capital = StockTrader_1mil(large_stock_df)
 valuation(buy_df, sell_df, n_seq=1000000)
 
 # Store the results in a .txt file
-with open('/mnt/c/Users/stef-/Desktop/Python_Assignment/large_test.txt', 'w') as file:
+with open('/mnt/c/Users/user/working_dir/large.txt', 'w') as file:
     file.write(f"{len(transactions)}\n")
     for _, row in transactions.iterrows():
         file.write(' '.join(str(value).strip() for value in row.values) + '\n')
-print(f"Τελικό κεφάλαιο: {final_capital}")
+print(f"Final Capital: {final_capital}")
+
